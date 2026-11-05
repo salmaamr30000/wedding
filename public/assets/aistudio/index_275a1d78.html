@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hisham & Rahma Wedding</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+
+  <!-- Opening screen -->
+  <section class="opening" id="opening">
+    <p class="opening-label">YOU ARE INVITED TO CELEBRATE</p>
+    
+    <!-- صورة الظرف (بدون أي ID للفتح، مجرد صورة عادية) -->
+    <div class="opening-image">
+        <img src="images/DWL CLUB.jpg" alt="Invitation Card">
+    </div>
+
+    <h1>Hisham <span>&</span> Rahma</h1>
+    <p class="opening-subtitle">A beautiful beginning starts here</p>
+    
+    <!-- زر OPEN INVITATION هو الوحيد اللي عنده id="openButton" عشان يفتح الدعوة -->
+    <button id="openButton" class="open-invitation-btn">OPEN INVITATION</button>
+  </section>
+
+  <!-- Main website -->
+  <div class="site" id="site">
+
+    <button class="music-button" id="musicButton">
+      ♫ <span id="musicText">Play music</span>
+    </button>
+
+    <audio id="weddingMusic" loop>
+      <source src="audio/wedding-song.mp3" type="audio/mpeg">
+    </audio>
+
+    <main class="invitation">
+
+      <!-- SECTION ONE -->
+      <section class="column">
+        <header class="cover">
+          <p class="top-script">An invitation</p>
+          <p class="top-label">TO OUR WEDDING</p>
+          
+          <div class="hands-photo">
+            <img src="images/hands-envelope.png.jpg" alt="Red wedding envelope with wax seal">
+          </div>
+          
+          <h2 class="names">
+            Hisham<br>&<br>Rahma
+          </h2>
+        </header>
+
+        <div class="ivory-card calendar-card">
+          <p class="script-title">Dear family<br>& friends</p>
+          <p>
+            We joyfully invite you to share with us
+            the happiness of our special day and
+            become part of our story.
+          </p>
+
+          <div class="calendar">
+            <div class="weekdays">
+              <span>Mon</span><span>Tue</span>
+              <span>Wed</span><span>Thu</span>
+              <span>Fri</span><span>Sat</span>
+              <span>Sun</span>
+            </div>
+            <div class="days" id="calendarDays"></div>
+          </div>
+
+          <p class="month" id="monthName">December 2026</p>
+        </div>
+
+        <div class="fabric"></div>
+
+        <div class="ivory-card venue-card">
+          <p class="script-title">The wedding celebration</p>
+          <small>WILL TAKE PLACE AT</small>
+          <h3 class="venue-name">The Wedding Venue</h3>
+          <p class="venue-address">Venue address</p>
+          <a class="map-link" id="mapLink" href="https://maps.google.com" target="_blank">
+            View on map
+          </a>
+        </div>
+      </section>
+
+      <!-- SECTION TWO -->
+      <section class="column">
+        <div class="ivory-card venue-card">
+          <p class="script-title">The wedding celebration</p>
+          <small>WILL TAKE PLACE AT</small>
+          <h3 class="venue-name">The Wedding Venue</h3>
+          <p class="venue-address">Venue address</p>
+          <a class="map-link" id="mapLink2" href="https://maps.google.com" target="_blank">
+            View on map
+          </a>
+          <p>GUEST ARRIVAL</p>
+          <h3 id="arrivalTime">AT 07:00 PM</h3>
+        </div>
+
+        <div class="bouquet">
+          <img src="images/download (2).jpg" alt="Wedding flowers">
+        </div>
+
+        <div class="schedule">
+          <p class="script-title">Wedding day<br>schedule</p>
+          <div class="timeline">
+            <div><time>07:00</time><span>Guest arrival</span></div>
+            <div><time>07:30</time><span>Wedding ceremony</span></div>
+            <div><time>08:30</time><span>Reception</span></div>
+            <div><time>11:00</time><span>End of celebration</span></div>
+          </div>
+        </div>
+
+        <div class="custom-image-section">
+          <img src="images/Gemini_Generated_Image_k7vhjhk7vhjhk7vh.jpg" alt="image invitation">
+        </div>
+
+        <div class="fabric"></div>
+
+        <div class="dress-code">
+          <p class="script-title">Dress code</p>
+          <p>Please join us in elegant attire<br>that complements our wedding colors.</p>
+          <div class="swatches">
+            <span></span><span></span>
+            <span></span><span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION THREE -->
+      <section class="column">
+        <div class="message-card ivory-card">
+          <p>
+            We may not be able to keep every
+            beautiful moment forever, but we
+            would love to keep the memory of
+            celebrating it with you.
+          </p>
+          <p>
+            Your presence is the greatest gift.
+            We look forward to celebrating with you.
+          </p>
+        </div>
+
+        <div class="fabric"></div>
+
+        <div class="rsvp ivory-card">
+          <p class="script-title">Kindly RSVP</p>
+          <p>Please complete the form below to help us prepare for our special day.</p>
+
+          <form id="rsvpForm">
+            <label for="guestName">Your name</label>
+            <input id="guestName" type="text" placeholder="Your full name" required>
+
+            <label>Will you be attending?</label>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="attendance" value="Yes, gladly!" required>
+                Yes, gladly!
+              </label>
+              <label>
+                <input type="radio" name="attendance" value="Sorry, I can't make it">
+                Sorry, I can't make it
+              </label>
+            </div>
+
+            <label for="guestCount">Number of guests</label>
+            <select id="guestCount">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+
+            <label for="guestMessage">Message (optional)</label>
+            <textarea id="guestMessage" rows="2"></textarea>
+
+            <button type="submit" class="send-button">Send RSVP</button>
+            <p id="formNote">Your response will open in WhatsApp.</p>
+          </form>
+        </div>
+
+        <footer class="footer">
+          <p>WE CAN'T WAIT TO CELEBRATE WITH YOU</p>
+          <img src="images/WhatsApp Image 2026-11-04 at 11.30.03 PM.jpeg" alt="photo groom and bride">
+          <h2 class="names">Hisham<br>&<br>Rahma</h2>
+        </footer>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

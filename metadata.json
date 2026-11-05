@@ -1,0 +1,6 @@
+{
+  "name": "Hisham & Rahma Wedding Invitation",
+  "description": "A luxury bespoke wedding invitation celebrating Hisham and Rahma with an interactive envelope reveal, H&R monogram wax seal, countdown, venue directions, ceremony timeline, and RSVP.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

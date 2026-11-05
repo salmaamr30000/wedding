@@ -1,0 +1,602 @@
+:root {
+  --wine: #39080f;
+  --wine2: #480616;
+  --gold: #c9aa7d;
+  --ivory: #f5ecdf;
+  --script: "Great Vibes", cursive;
+  --serif: "Cormorant Garamond", serif;
+  --sans: "Montserrat", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background-image: url("images/download (4).jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: rgb(234, 224, 224);
+  font-family: var(--sans);
+}
+
+/* OPENING SCREEN */
+
+/* OPENING SCREEN WITH ORIGINAL BACKGROUND */
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(
+      rgba(45, 3, 12, 0.65),
+      rgba(45, 3, 12, 0.80)
+    ),
+    url("images/background.jpg.jpg") center/cover no-repeat;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.opening.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* ENVELOPE ANIMATION */
+.envelope {
+  position: relative;
+  width: 350px;
+  height: 180px;
+  margin-top: 25px;
+  cursor: pointer;
+  filter: drop-shadow(0 12px 15px #16020788);
+}
+
+.envelope-back {
+  position: absolute;
+  inset: 0;
+  background: #e6d3b9;
+}
+
+.letter {
+  position: absolute;
+  z-index: 1;
+  top: 20px;
+  left: 15px;
+  right: 15px;
+  height: 115px;
+  background: #f7eee4;
+  color: var(--wine);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font: 48px var(--script);
+  transition: .8s;
+}
+
+.letter small {
+  font: 8px var(--sans);
+  letter-spacing: 2px;
+}
+
+.envelope-front {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(140deg, #6a0e23, #3b0914);
+  clip-path: polygon(0 0, 50% 60%, 100% 0, 100% 100%, 0 100%);
+}
+
+.flap {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  background: #6a0e23;
+  clip-path: polygon(0 0, 100% 0, 50% 67%);
+  transform-origin: top;
+  transition: .8s;
+}
+
+.seal {
+  position: absolute;
+  z-index: 4;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #c9aa7d;
+  border: 2px solid #f0dfc4;
+  color: var(--wine);
+  display: grid;
+  place-items: center;
+  font: 13px var(--serif);
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.envelope.open .letter {
+  transform: translateY(-65px);
+}
+
+/* MAIN WEBSITE - STRUCTURED VERTICALLY */
+
+.site {
+  display: none;
+}
+
+.site.visible {
+  display: block;
+}
+
+.invitation {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  background: var(--wine);
+}
+
+.column {
+  min-height: auto;
+  padding: 45px 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 50% 25%, #560a19, #350810 70%);
+  border-bottom: 2px solid rgba(201, 170, 125, 0.2);
+}
+
+.column::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(201, 170, 125, 0.2);
+  pointer-events: none;
+}
+
+.column > * {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+/* COVER */
+
+.top-script {
+  font: 38px var(--script);
+  margin: 0;
+}
+
+.top-label {
+  font-size: 8px;
+  letter-spacing: 3px;
+}
+
+.hands-photo {
+  max-width: 400px;
+  width: 100%;
+  height: 320px;
+  margin: 25px auto 15px;
+}
+
+.hands-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 2px solid var(--gold);
+}
+
+.names {
+  font: 55px/.85 var(--script);
+  font-weight: normal;
+  color: #f3e6d9;
+  margin: 15px 0;
+}
+
+.names span {
+  color: var(--gold);
+}
+
+/* IVORY CARDS */
+
+.ivory-card {
+  background: linear-gradient(rgba(255, 250, 241, 0.82), rgba(234, 219, 200, 0.82)),
+              url("images/ivory-paper.jpg") center/cover no-repeat;
+  color: #5c3b3b;
+  padding: 25px 18px;
+  box-shadow: 0 8px 20px rgba(22, 2, 7, 0.35);
+}
+
+.calendar-card {
+  max-width: 360px;
+  margin: auto;
+  border: 5px double #d2bda4;
+  border-radius: 45% 45% 5px 5px / 13% 13% 5px 5px;
+}
+
+.script-title {
+  font: 36px/.95 var(--script);
+  color: #80535a;
+  margin: 0 0 12px;
+}
+
+.calendar-card > p:not(.script-title) {
+  font: 12px/1.6 var(--serif);
+}
+
+.weekdays, .days {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.weekdays {
+  font-size: 8px;
+  border-bottom: 1px solid #d0bba6;
+  padding-bottom: 7px;
+}
+
+.days {
+  padding-top: 7px;
+  font: 12px var(--serif);
+}
+
+.days span {
+  height: 23px;
+  display: grid;
+  place-items: center;
+  position: relative;
+}
+
+.days .selected::after {
+  content: "";
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  border: 1.5px solid #943d4b;
+  border-radius: 50%;
+}
+
+.month {
+  font: 20px var(--script);
+  color: #8b4654;
+  margin-top: 10px;
+}
+
+/* FABRIC DECORATION */
+.fabric {
+  height: 60px;
+  width: calc(100% + 50px);
+  margin: 0 -25px;
+  background: #491121;
+  filter: drop-shadow(0 5px 4px rgba(22, 2, 7, 0.4));
+  transform: skewY(-3deg);
+}
+
+/* VENUE */
+
+.venue-card {
+  width: 90%;
+  max-width: 350px;
+  margin: auto;
+}
+
+.venue-name {
+  font: 600 20px var(--serif);
+  color: #572b34;
+  margin: 8px 0;
+}
+
+.venue-address {
+  font: 12px var(--serif);
+  margin-bottom: 12px;
+}
+
+.map-link {
+  display: inline-block;
+  text-decoration: none;
+  color: white;
+  background: #5a1524;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 9px;
+  margin-top: 5px;
+}
+
+/* FLOWERS */
+
+.bouquet {
+  height: 200px;
+}
+
+.bouquet img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* CUSTOM IMAGE SECTION */
+.custom-image-section img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 10px;
+  border: 1px solid var(--gold);
+  margin: 0 auto;
+  display: block;
+}
+
+/* SCHEDULE */
+
+.schedule .script-title {
+  color: #ead8c7;
+}
+
+.timeline {
+  max-width: 330px;
+  margin: 20px auto;
+  text-align: left;
+}
+
+.timeline div {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.timeline time {
+  font: italic 20px var(--serif);
+  color: #e6c9ae;
+}
+
+.timeline span {
+  font: 13px var(--serif);
+}
+
+/* DRESS CODE */
+
+.dress-code .script-title {
+  color: #ead8c7;
+}
+
+.dress-code p:not(.script-title) {
+  font: 12px/1.6 var(--serif);
+}
+
+.swatches {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.swatches span {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+.swatches span:nth-child(1) { background: #5a1727; }
+.swatches span:nth-child(2) { background: #000000; }
+.swatches span:nth-child(3) { background: #af9b85; }
+.swatches span:nth-child(4) { background: #090c5c; }
+
+/* MESSAGE AND RSVP */
+
+.message-card {
+  background: var(--ivory);
+  color: #604344;
+  padding: 25px 20px;
+  max-width: 360px;
+  margin: auto;
+}
+
+.message-card p {
+  font: 12px/1.65 var(--serif);
+  margin: 0 0 10px;
+}
+
+.rsvp {
+  max-width: 360px;
+  margin: auto;
+}
+
+.rsvp .script-title {
+  color: #ead8c7;
+}
+
+.rsvp > p:not(.script-title) {
+  font: 12px/1.6 var(--serif);
+}
+
+#rsvpForm {
+  text-align: left;
+  margin-top: 15px;
+}
+
+#rsvpForm > label {
+  display: block;
+  font-size: 10px;
+  margin: 12px 0 5px;
+}
+
+#rsvpForm input[type="text"],
+#rsvpForm select,
+#rsvpForm textarea {
+  width: 100%;
+  border: 1px solid var(--gold);
+  background: #3a0a14;
+  color: white;
+  padding: 8px 10px;
+  border-radius: 4px;
+}
+
+.radio-group {
+  display: grid;
+  gap: 6px;
+  font-size: 10px;
+}
+
+.radio-group input {
+  accent-color: var(--gold);
+}
+
+.send-button {
+  display: block;
+  margin: 18px auto 10px;
+  background: var(--ivory);
+  color: var(--wine);
+  border: 0;
+  border-radius: 25px;
+  padding: 10px 25px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+#formNote {
+  text-align: center;
+  font-size: 9px;
+  margin: 5px 0 0;
+}
+
+/* FOOTER */
+
+.footer {
+  padding: 20px 0;
+}
+
+.footer img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+  border: 6px solid var(--gold);
+  margin: 15px 0;
+}
+
+.footer p {
+  font-size: 9px;
+  letter-spacing: 1px;
+  margin: 5px 0;
+}
+
+/* MUSIC BUTTON */
+
+.music-button {
+  position: fixed;
+  right: 15px;
+  top: 14px;
+  z-index: 10;
+  background: #2d060d;
+  border: 1px solid var(--gold);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 11px;
+}
+
+/* تنسيق صورة الكارت في شاشة الافتتاح */
+/* الباكجراوند الأصلية لشاشة الافتتاح */
+/* تنسيق شاشة الافتتاح لتكون متناسقة ومنتصفة */
+.opening {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background:
+    linear-gradient(
+      rgba(45, 3, 12, 0.75),
+      rgba(45, 3, 12, 0.88)
+    ),
+    url("images/background.jpg.jpg") center/cover no-repeat;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+  text-align: center;
+  padding: 20px;
+}
+
+.opening.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* حجم وشكل صورة الظرف */
+/* 1. زيادة عرض وحجم صورة الظرف مع إطار و حواف ذهبية فخمة */
+.opening-image {
+  width: 300px; /* جعل الكارت يعرض بالعرض أكثر */
+  max-width: 100%;
+  height: auto;
+  margin: 10px auto;
+}
+
+.opening-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 6px solid var(--gold); /* حواف ذهبية واضحة وجميلة */
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.7);
+  display: block;
+}
+
+/* 2. تكبير اسم العروسين (Hisham & Rahma) */
+.opening h1 {
+  font: 70px var(--script); /* تكبير حجم الخط */
+  margin: 15px 0 5px 0;
+  color: #f3e6d9;
+}
+
+.opening h1 span {
+  color: var(--gold);
+}
+
+/* تكبير الجملة التحتية قليلاً لتكون متناسقة */
+.opening-subtitle {
+  font: italic 15px var(--serif);
+  margin-bottom: 20px;
+  color: #d2bda4;
+}
+
+/* 3. تكبير وتعديل زر OPEN INVITATION ليكون واضحاً وفي صندوق شيك */
+.open-invitation-btn {
+  padding: 13px 45px; /* زيادة مساحة الزر */
+  border: 5px solid var(--gold); /* إطار ذهبي بارز */
+  background: var(--ivory);
+  color: var(--wine);
+  letter-spacing: 3px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-family: var(--sans);
+  font-size: 17px; /* تكبير الخط داخل الصندوق */
+  font-weight: 650;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.open-invitation-btn:hover {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(-2px);
+}
